@@ -17,6 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
   @Controller
   @RequestMapping("/variables")
 public class EjemploPathVariableController {
+	  
+	  @GetMapping("/")
+	  public String index(Model modelo) {
+		  modelo.addAttribute("titulo","Recibir parametrso de la ruta (@PathVariable)");
+		  modelo.addAttribute("nombre", "ErwinCM");
+		  return "variables/index";
+	  }
 
 	  //La onotación de PathVariable es muy similar a la de RequestParam
 	  @GetMapping("/string/{texto}")
@@ -24,6 +31,13 @@ public class EjemploPathVariableController {
 		  modelo.addAttribute("titulo","Recibir parametros  de la ruta (@PathVariable)");
 		  modelo.addAttribute("resultado", "El texto enviado por la URL es: "+texto);
 		  
+		  return "variables/ver";
+	  }
+	  
+	  @GetMapping("/string/{texto}/{numero}")
+	  public String params(@PathVariable String texto,@PathVariable Integer numero,Model modelo) {
+		  modelo.addAttribute("titulo","Recibir parametros  de la ruta (@PathVariable)");
+		  modelo.addAttribute("resultado", "El texto enviado por la URL es: "+texto+" y el numero es:"+numero);
 		  return "variables/ver";
 	  }
 }

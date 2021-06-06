@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--Para que funcione el Model o ModelMap se tiene que hacer el siguente en donde :th es el nombre de la etiquta enlace ysiempre es th-->
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title th:text="${titulo}"></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Ejemplo Path Varaibles</h1>
+   <ul><li><a th:href="@{/variables/string/}+Erwin">/variables/string/Erwin</li></ul>
+   <ul><li><a th:href="@{/variables/string/}+Erwin+'/'+26">/variables/string/Erwin/26</li></ul>
+   <ul><li><a th:href="@{/variables/string/}+${nombre}+'/'+ ${'26'}">/variables/string/${nombre}/${'26'}</li></ul>
+</body>
+</html>
